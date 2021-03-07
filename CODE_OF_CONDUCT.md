@@ -40,7 +40,7 @@ These principles include:
  +  **Political correctness.**
     You can say “fuck”, you can say “ACAB”, you’re allowed to get upset.
     If you’re a dyke, you can call yourself a dyke.
-    The politically‐correct words are often the wrong ones, and here at Nib we want you to do what feels right.
+    The politically‐correct words are often the wrong ones, and we want you to do what feels right.
 
  +  **Merchantability.**
     This community is not interested in making sellable code or code which is easy to use in sellable products.
