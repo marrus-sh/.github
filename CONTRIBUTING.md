@@ -106,10 +106,11 @@ The following are broad emoji conventions for use in such local contexts:
 
 | Emoji | Meaning |
 | :-: | :-: |
-| `🔙` | The result of a function call |
-| `🔜` | What will be returned |
+| `🔙` | A result of an operation; typically a temporary value or cast |
+| `🔜` | What will be returned; a collection being reduced into |
 | `🤛` | Righthand‐side |
 | `🤜` | Lefthand‐side |
+| `🈁` | “Here”; the current value or index in an iteration/loop |
 | `🆕` | A newly‐created value |
 | `🆗` | OK; success |
 | `🆖` | No good; failure |
