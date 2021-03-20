@@ -79,7 +79,7 @@ The allowed characters in Swift code are those in the [MacRoman character set](h
 Exceptions to the above are allowed for:
 
  +  String literals
- +  Documentation comments
+ +  Documentation comments (although *do your best*)
  +  Identifiers, when an accepted form uses other characters (for example, identifiers in a different language)
 
 
@@ -99,22 +99,34 @@ In the actual specifications, you might see `[this]` or `·this·` or `{this}` o
 #####  emoji  #####
 
 Emoji may be used in non‐public identifiers *only*.
-The emoji `🙈`, `🙉`, `🙊` are used to denote changes in access control, signifying `private`, `fileprivate`, and `internal`, respectively.
-It is *recommended* that constants and variables declared in the body of a function (or other statement) use an emoji in their name, to distinguish them from arguments and parameters.
+The emoji `🙈`, `🙉`, `🙊` are used to denote changes in access control, signifying private, fileprivate, and internal, respectively.
+If an internal property or method is `@usableFromInline`, this may be indicated with a `🐵` emoji instead.
+It is *recommended* that constants and variables declared in the body of a function use an emoji in their name, to distinguish them from properties and parameters.
 
 The following are broad emoji conventions for use in such local contexts:
 
-| Emoji | Meaning |
-| :-: | :-: |
-| `🔙` | A result of an operation; typically a temporary value or cast |
-| `🔜` | What will be returned; a collection being reduced into |
-| `🤛` | Righthand‐side |
-| `🤜` | Lefthand‐side |
-| `🈁` | “Here”; the current value or index in an iteration/loop |
-| `🆕` | A newly‐created value |
-| `🆗` | OK; success |
-| `🆖` | No good; failure |
-| `〽️` | Mutable; variable |
+| Codepoint(s) | Emoji | Meaning |
+| --: | :-: | :-: |
+| `U+2319,U+FEOF` | `ℹ️` | Index |
+| `U+303D,U+FEOF` | `〽️` | Mutable; variable |
+| `U+1F192` | `🆒` | Processed |
+| `U+1F195` | `🆕` | A newly‐created value |
+| `U+1F196` | `🆖` | No good; failure |
+| `U+1F197` | `🆗` | OK; success |
+| `U+1F198` | `🆘` | Unsafe |
+| `U+1F199` | `🆙` | Currently up; a value to process |
+| `U+1F201` | `🈁` | “Here”; the current value in an iteration/loop |
+| `U+1F435` | `🐵` | `@usableFromInline internal` |
+| `U+1F4B1` | `💱` | A typecast or conversion |
+| `U+1F519` | `🔙` | The return value of an operation |
+| `U+1F51A` | `🔚` | A last value |
+| `U+1F51C` | `🔜` | A collection being reduced into; a forthcoming result |
+| `U+1F51A` | `🔝` | A first value |
+| `U+1F648` | `🙈` | `private` |
+| `U+1F649` | `🙉` | `fileprivate` |
+| `U+1F64A` | `🙊` | `internal` |
+| `U+1F91B` | `🤜` | Lefthand‐side |
+| `U+1F91C` | `🤛` | Righthand‐side |
 
 Emoji may be used as operators even in public code (where the Swift lexical grammar allows).
 
