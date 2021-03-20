@@ -107,8 +107,8 @@ The following are broad emoji conventions for use in such local contexts:
 
 | Codepoint(s) | Emoji | Meaning |
 | --: | :-: | :-: |
-| `U+2319,U+FEOF` | `ℹ️` | Index |
-| `U+303D,U+FEOF` | `〽️` | Mutable; variable |
+| `U+2319,U+FE0F` | `ℹ️` | Index |
+| `U+303D,U+FE0F` | `〽️` | Mutable; variable |
 | `U+1F192` | `🆒` | Processed |
 | `U+1F195` | `🆕` | A newly‐created value |
 | `U+1F196` | `🆖` | No good; failure |
@@ -130,7 +130,7 @@ The following are broad emoji conventions for use in such local contexts:
 
 Emoji may be used as operators even in public code (where the Swift lexical grammar allows).
 
-**Be aware that some emoji include an invisible VS-16 codepoint (`U+FEOF`).**
+**Be aware that some emoji include an invisible VS-16 codepoint (`U+FE0F`).**
 
 
 ####  Documentation conventions  ###
