@@ -70,6 +70,10 @@ For example, an extension to `String` should go in `Values/Swift.String.swift`.
 Typealiases get their own file, organized by the aliased type.
 Place extensions to an aliased type in the same file as the typealias.
 
+Filenames may optionally be preceded by an emoji sigil, followed by a space.
+**_Use emoji sigils to associate code with relevant documentation_**; for example if a documentation section is titled `🏳️‍🌈 Gay Shit`, one might name a file documented in that section `🏳️‍🌈 Trains.swift` (not `🚂 Trains.swift`) to associate it with the other files so documented.
+This makes it easier to operate on related sections of the code using filename globs and also makes it much easier to find the file you’re looking for in large(r) codebases.
+
 
 ####  Character input  ####
 
