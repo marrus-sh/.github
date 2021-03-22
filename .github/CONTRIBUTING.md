@@ -35,6 +35,19 @@ Be advised that if I have not seen you around, and your connection to the projec
 You should be familiar with the [Standards of Participation](./CODE_OF_CONDUCT.md) before participating.
 
 
+##  Branches and Versions  ##
+
+The main branch of most repositories will be called `current`; this is the code which is recommended for new users to adopt.
+It is not guaranteed to be stable, only the most stable; it is not guaranteed to be complete, only the most complete.
+In addition to this branch, there will (likely) be tagged releases; `current` may contain additional commits beyond the latest tagged release, but typically only in the case of documentation or metadata updates (not changes to code).
+
+Releases take the usual three‐part decimal format used by [SemVer](https://semver.org) and other open source projects.
+The terms *version*, *draft*, and *revision* are sometimes preferred over *major*, *minor*, and *patch*, and you will sometimes see them formatted as `vXdYrZ` or `X.Y / revision Z` instead of the `X.Y.Z` which is conventional.
+
+Development for the next draft (major or minor) release typically occurs on the `development` branch.
+Pull requests which make code changes should be sent there if one exists.
+
+
 ##  KIBI House Style  ##
 
 The following documents the *basics* of the house style which I use for the bulk of my projects.
