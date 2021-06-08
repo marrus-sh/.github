@@ -109,8 +109,19 @@ In some cases the specification name is a little more opaque or cumbersome than 
 The character `U+00B7 · MIDDLE DOT` is used in place of a hyphen; the following letter is not capitalized.
 It is also used in abbreviations in place of Swift’s more idiomatic “write all the letters with the same case” convention; in this case, the following letter *is* capitalized.
 
-Properties, functions, or methods explicitly provided for by a specification are written surrounded by middle dots, like `·this·`; this is to distinguish them from both (a) grammars et cetera which might have the same name, and (b) the idiomatic Swift interfaces, where better ones exist.
-In the actual specifications, you might see `[this]` or `·this·` or `{this}` or similar.
+
+#####  middot names  #####
+
+When a property, function, or method implements an algorithm explicitly provided for by a specification, describes a value, or otherwise forms a core part of the set of expected interactions within an API, its name will be written surrounded by middle dots, like `·this·`.
+Most properties, functions, and methods should take this form.
+A middle dot is **not** used in the following cases:
+
+ +  Names of types or specific values (e.g. enum cases)
+ +  Simple conversions between types (e.g. `.string` or `.int` computed properties)
+ +  Properties or methods required for protocol conformance (although these may be implemented simply as aliases for a middot property or method)
+ +  Implementation of native Swift APIs like `CustomStringConvertible` (for obvious reasons)
+
+Outside of protocol implementations, you should *always* use middot methods where available; they are the preferred means of interacting with code.
 
 
 #####  emoji  #####
