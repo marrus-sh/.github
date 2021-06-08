@@ -145,12 +145,15 @@ The following are broad emoji conventions for use in such local contexts:
 | `U+1F198` | `🆘` | Unsafe |
 | `U+1F199` | `🆙` | Currently up; a value to process |
 | `U+1F201` | `🈁` | “Here”; the current value in an iteration/loop |
+| `U+1F4C1` | `📁` | A wrapped value |
+| `U+1F4C2` | `📂` | An unwrapped value |
 | `U+1F435` | `🐵` | `@usableFromInline internal` |
 | `U+1F4B1` | `💱` | A typecast or conversion |
 | `U+1F519` | `🔙` | The return value of an operation |
 | `U+1F51A` | `🔚` | A last value |
-| `U+1F51C` | `🔜` | A collection being reduced into; a forthcoming result |
+| `U+1F51C` | `🔜` | A value being reduced into; a forthcoming result |
 | `U+1F51A` | `🔝` | A first value |
+| `U+1F5C3` | `🗃` | Storage |
 | `U+1F648` | `🙈` | `private` |
 | `U+1F649` | `🙉` | `fileprivate` |
 | `U+1F64A` | `🙊` | `internal` |
