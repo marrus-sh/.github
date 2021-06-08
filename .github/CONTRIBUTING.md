@@ -113,10 +113,11 @@ It is also used in abbreviations in place of Swift’s more idiomatic “write a
 #####  middot names  #####
 
 When a property, function, or method implements an algorithm explicitly provided for by a specification, describes a value, or otherwise forms a core part of the set of expected interactions within an API, its name will be written surrounded by middle dots, like `·this·`.
-Most properties, functions, and methods should take this form.
+Most properties, functions, and methods will take this form.
 A middle dot is **not** used in the following cases:
 
  +  Names of types or specific values (e.g. enum cases)
+ +  “Constructor” static methods
  +  Simple conversions between types (e.g. `.string` or `.int` computed properties)
  +  Properties or methods required for protocol conformance (although these may be implemented simply as aliases for a middot property or method)
  +  Implementation of native Swift APIs like `CustomStringConvertible` (for obvious reasons)
