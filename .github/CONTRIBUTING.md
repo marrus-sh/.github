@@ -67,8 +67,8 @@ Within each module, the file structure is as follows:
 
 | Path | Meaning |
 | --- | --- |
-| `Classes/` | Class type definitions |
 | `Functions/` | Toplevel function definitions |
+| `Objects/` | Reference type definitions (actors and classes) |
 | `Protocols/` | Protocol definitions |
 | `Values/` | Value type definitions (structs and enums) |
 | `Operators.swift` | Any operators defined in this module, as well as any toplevel operator definitions |
