@@ -42,7 +42,7 @@ It is not guaranteed to be stable, only the most stable; it is not guaranteed to
 In addition to this branch, there will (likely) be tagged releases; `current` may contain additional commits beyond the latest tagged release, but typically only in the case of documentation or metadata updates (not changes to code).
 
 Releases take the usual three‐part decimal format used by [SemVer](https://semver.org) and other open source projects.
-The terms *version*, *draft*, and *revision* are sometimes preferred over *major*, *minor*, and *patch*, and you will sometimes see them formatted as `vXdYrZ` or `X.Y / revision Z` instead of the `X.Y.Z` which is conventional.
+The terms **_version_**, **_draft_**, and **_revision_** are sometimes preferred over **_major_**, **_minor_**, and **_patch_**, and you will sometimes see them formatted as `vXdY[rZ]` or `X·Y[ / revision Z]` instead of the `X.Y[.Z]` which is conventional.
 
 Development for the next draft (major or minor) release typically occurs on the `development` branch.
 Pull requests which make code changes should be sent there if one exists.
@@ -61,9 +61,28 @@ One exception is in Markdown (including Markdown comments in other languages), i
 ###  Swift code  ###
 
 
+####  Terminology  ####
+
+The word **_object_** refers to anything with reference semantics, i.e. which conforms to `AnyObject`.
+In earlier versions of Swift, this meant class instances, but the scope may expand to include e.g. actors.
+
+The word **_value_** refers *specifically* to things with value semantics, like structs or enums.
+Do not say “value” in contexts where it is not known whether a given thing is or isn’t an object.
+
+The word **_thing_** refers to both objects and values together.
+
+If a thing doesn’t belong to another thing, it is a **_variable_**, **_constant_**, or **_function_**.
+If it does, it is a (possibly **_static_**) **_property_** or **_method_**.
+Properties which only have getters are **_readonly_**, and properties which only have setters (rare) are **_write·only_**.
+
+Spelling and language generally follows Canadian English, with some peculiarities.
+Compound words and terms of art are written joined when doing so does not change their pronunciation under ordinary English rules (e.g. “contextfree”), and joined with middle dots otherwise (e.g. “code·point”).
+Words ending in double·L are changed to single·L when used as prefixes (e.g. “welformed”).
+
+
 ####  File structure  ####
 
-Within each module, the file structure is as follows:
+Within each module, the file structure is as follows :—
 
 | Path | Meaning |
 | --- | --- |
@@ -71,7 +90,7 @@ Within each module, the file structure is as follows:
 | `Objects/` | Reference type definitions (actors and classes) |
 | `Protocols/` | Protocol definitions |
 | `Values/` | Value type definitions (structs and enums) |
-| `Operators.swift` | Any operators defined in this module, as well as any toplevel operator definitions |
+| `Operators.swift` | Any operators defined in this module |
 | `Precedences.swift` | Operator precedences if required |
 
 Toplevel constant or variable declarations are to be *avoided at all costs* (make them a static property on a type).
@@ -83,7 +102,7 @@ For example, an extension to `String` should go in `Values/Swift.String.swift`.
 Typealiases get their own file, organized by the aliased type.
 Place extensions to an aliased type in the same file as the typealias.
 
-Filenames may optionally be preceded by an emoji sigil, followed by a space.
+Filenames may optionally be preceded by an emoji sigil, followed by a *nonbreaking* space (U+00A0).
 **_Use emoji sigils to associate code with relevant documentation_**; for example if a documentation section is titled `🏳️‍🌈 Gay Shit`, one might name a file documented in that section `🏳️‍🌈 Trains.swift` (not `🚂 Trains.swift`) to associate it with the other files so documented.
 This makes it easier to operate on related sections of the code using filename globs and also makes it much easier to find the file you’re looking for in large(r) codebases.
 
@@ -93,10 +112,11 @@ This makes it easier to operate on related sections of the code using filename g
 The allowed characters in Swift code are those in the [MacRoman character set](https://en.wikipedia.org/wiki/Mac_OS_Roman) plus any Emoji; these are all characters which should be available through ordinary Macintosh input methods.
 (Linux users: You should be able to install a Macintosh keyboard layout on your system; I cannot help you when it comes to emoji [but recommend [fcitx](https://fcitx-im.org/wiki/Fcitx)].)
 
-Exceptions to the above are allowed for:
+Exceptions to the above are allowed for :—
 
  +  String literals
  +  Documentation comments (although *do your best*)
+     +  MacRoman (very unfortunately) does not have a separate hyphen character; use hyphen‐minus
  +  Identifiers, when an accepted form uses other characters (for example, identifiers in a different language)
 
 
@@ -114,7 +134,7 @@ It is also used in abbreviations in place of Swift’s more idiomatic “write a
 
 When a property, function, or method implements an algorithm explicitly provided for by a specification, describes a value, or otherwise forms a core part of the set of expected interactions within an API, its name will be written surrounded by middle dots, like `·this·`.
 Most properties, functions, and methods will take this form.
-A middle dot is **not** used in the following cases:
+A middle dot is **not** used in the following cases :—
 
  +  Names of types or specific values (e.g. enum cases)
  +  “Constructor” static methods
@@ -131,51 +151,72 @@ Emoji may be used in non‐public identifiers *only*.
 The emoji `🙈`, `🙉`, `🙊` are used to denote changes in access control, signifying private, fileprivate, and internal, respectively.
 If an internal property or method is `@usableFromInline`, this may be indicated with a `🐵` emoji instead.
 It is *recommended* that constants and variables declared in the body of a function use an emoji in their name, to distinguish them from properties and parameters.
+Because such variables cannot escape the narrow context in which they are defined, ambiguity is generally not an issue here.
 
-The following are broad emoji conventions for use in such local contexts:
+The following are broad emoji conventions for use in such contexts :—
 
 | Codepoint(s) | Emoji | Meaning |
 | --: | :-: | :-: |
 | `U+2319,U+FE0F` | `ℹ️` | Index |
 | `U+303D,U+FE0F` | `〽️` | Mutable; variable |
-| `U+1F192` | `🆒` | Processed |
-| `U+1F195` | `🆕` | A newly‐created value |
+| `U+1F192` | `🆒` | A processed or normalized thing |
+| `U+1F194` | `🆔` | Identifier; especially an IRI |
+| `U+1F195` | `🆕` | A newly‐created thing |
 | `U+1F196` | `🆖` | No good; failure |
 | `U+1F197` | `🆗` | OK; success |
 | `U+1F198` | `🆘` | Unsafe |
 | `U+1F199` | `🆙` | Currently up; a value to process |
 | `U+1F201` | `🈁` | “Here”; the current value in an iteration/loop |
-| `U+1F4C1` | `📁` | A wrapped value |
-| `U+1F4C2` | `📂` | An unwrapped value |
+| `U+1F310` | `🌐` | Localized |
+| `U+1F3B1` | `🎱` | Foo |
+| `U+1F4C1` | `📁` | Wrapped |
+| `U+1F4C2` | `📂` | Unwrapped |
 | `U+1F435` | `🐵` | `@usableFromInline internal` |
+| `U+1F4B0` | `💰` | Thing accessed by a key |
 | `U+1F4B1` | `💱` | A typecast or conversion |
-| `U+1F519` | `🔙` | The return value of an operation |
-| `U+1F51A` | `🔚` | A last value |
-| `U+1F51C` | `🔜` | A value being reduced into; a forthcoming result |
-| `U+1F51A` | `🔝` | A first value |
-| `U+1F5C3` | `🗃` | Storage |
+| `U+1F4DB` | `📛` | Name |
+| `U+1F4DE` | `📞` | Callback |
+| `U+1F511` | `🔑` | Key |
+| `U+1F519` | `🔙` | The return thing of an operation |
+| `U+1F51A` | `🔚` | A last thing |
+| `U+1F51B` | `🔛` | A range |
+| `U+1F51C` | `🔜` | A thing being reduced into; a forthcoming result |
+| `U+1F51A` | `🔝` | A first thing |
+| `U+1F5C4` | `🗄` | Storage |
 | `U+1F648` | `🙈` | `private` |
 | `U+1F649` | `🙉` | `fileprivate` |
 | `U+1F64A` | `🙊` | `internal` |
-| `U+1F91B` | `🤜` | Lefthand‐side |
-| `U+1F91C` | `🤛` | Righthand‐side |
+| `U+1F91B` | `🤛` | Righthand |
+| `U+1F91C` | `🤜` | Lefthand |
+| `U+1F9F1` | `🧱` | Component |
 
-Emoji may be used as operators even in public code (where the Swift lexical grammar allows).
+—: but be aware that these are just guidelines.
+If the meaning of an emoji is not clear from its surrounding context, it probably means you need to refactor your code!
+
+Emoji may be used as operators *even in public code* (where the Swift lexical grammar allows).
 
 **Be aware that some emoji include an invisible VS-16 codepoint (`U+FE0F`).**
 
 
-####  Documentation conventions  ###
+####  Documentation  ###
 
-Documentation should follow [ordinary Swift conventions](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode_markup_formatting_ref/SymbolDocumentation.html).
-All public API terms should be documented, and each should have a `Version` callout describing when they were added.
+Documentation of public symbols should generally follow [ordinary DocC conventions](https://developer.apple.com/documentation/docc).
+(Documentation of private symbols should too, but it’s less important.)
+Note that, at time of writing, DocC does not play particularly well with non·A·S·C·I·I characters, so you may have to do some investigative work to find out how to refer to things.
+When the symbol link and symbol name differ, formatting links like ``[`·foo·`](doc:MyModule/MyValue/_foo_)`` is preferred for clarity.
 
-An `Authors` callout should be used for functions and computed properties (anything which might appear within an extension), but *not* for types or protocol requirements.
-All contributors to the implementation should put their names here.
+The first instance of a symbol should be linked, *per section*.
+Remaining instances need not be linked.
 
-Use `Note` callouts for documenting ambiguous cases in the spec, differences in the implementation, or common gotchas with use.
+A termlist should be placed in the Overview section, before the first subheading (or at the end of the section if there are no subheadings).
+The following terms should be defined :—
 
-Functions which take parameters should have a `Parameters` section; functions which return should have a `Returns`, and functions which throw should have a `Throws`.
+| Term | Meaning | Required for… |
+| --- | --- | --- |
+| `Specification(s)` | Links to one or more relevant specifications which define the implemented behaviours | Anything which implements an external specification |
+| `Available since` | The version of the API when this symbol was first made public | Public symbols |
+| `Author(s)` | Individuals who contributed to the implementation of this symbol | Functions, methods, and computed symbols (anything which is defined using a closure) |
+| `Complexity` | How much “time” the algorithm takes; e.g. O(n) | Anything which cannot be solved in constant time |
 
 
 ###  Other code languages  ###
