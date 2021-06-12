@@ -203,9 +203,11 @@ Emoji may be used as operators *even in public code* (where the Swift lexical gr
 Documentation of public symbols should generally follow [ordinary DocC conventions](https://developer.apple.com/documentation/docc).
 (Documentation of private symbols should too, but it’s less important.)
 Note that, at time of writing, DocC does not play particularly well with non·A·S·C·I·I characters, so you may have to do some investigative work to find out how to refer to things.
-When the symbol link and symbol name differ, formatting links like ``[`·foo·`](doc:MyModule/MyValue/_foo_)`` is preferred for clarity.
+When the symbol link and symbol name differ, formatting links like ``[`·foo·`](doc:_foo_)`` is preferred for clarity.
 
 The first instance of a symbol should be linked, *per section*.
+(Consider Parameters/Returns/Throws items each to be their own section.)
+Do not link the symbol currently being defined.
 Remaining instances need not be linked.
 
 A termlist should be placed in the Overview section, before the first subheading (or at the end of the section if there are no subheadings).
@@ -213,6 +215,9 @@ The following terms should be defined :—
 
 | Term | Meaning | Required for… |
 | --- | --- | --- |
+| `Framework version` | The version of the framework being documented | Landing pages |
+| `Maintainer(s)` | The current maintainer(s) of the framework | Landing pages |
+| `Source repository` | A link to the source repository for the framework | Landing pages |
 | `Specification(s)` | Links to one or more relevant specifications which define the implemented behaviours | Anything which implements an external specification |
 | `Available since` | The version of the API when this symbol was first made public | Public symbols |
 | `Author(s)` | Individuals who contributed to the implementation of this symbol | Functions, methods, and computed symbols (anything which is defined using a closure) |
