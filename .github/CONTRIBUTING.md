@@ -176,11 +176,13 @@ The following are broad emoji conventions for use in such contexts :—
 | `U+1F4B1` | `💱` | A typecast or conversion |
 | `U+1F4DB` | `📛` | Name |
 | `U+1F4DE` | `📞` | Callback |
+| `U+1F4E5` | `📥` | An accumulator |
+| `U+1F4E4` | `📤` | An iterator |
 | `U+1F511` | `🔑` | Key |
 | `U+1F519` | `🔙` | The return thing of an operation |
 | `U+1F51A` | `🔚` | A last thing |
 | `U+1F51B` | `🔛` | A range |
-| `U+1F51C` | `🔜` | A thing being reduced into; a forthcoming result |
+| `U+1F51C` | `🔜` | A forthcoming result |
 | `U+1F51A` | `🔝` | A first thing |
 | `U+1F5C4` | `🗄` | Storage |
 | `U+1F648` | `🙈` | `private` |
