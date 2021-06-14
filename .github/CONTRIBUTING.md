@@ -139,7 +139,7 @@ A middle dot is **not** used in the following cases :—
  +  Names of types or specific values (e.g. enum cases)
  +  “Constructor” static methods
  +  Simple conversions between types (e.g. `.string` or `.int` computed properties)
- +  Properties or methods required for protocol conformance (although these may be implemented simply as aliases for a middot property or method)
+ +  Properties or methods required for protocol conformance, which are used to derive more regular APIs
  +  Implementation of native Swift APIs like `CustomStringConvertible` (for obvious reasons)
 
 Outside of protocol implementations, you should *always* use middot methods where available; they are the preferred means of interacting with code.
